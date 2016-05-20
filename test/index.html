@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Events</title>
+
+    <script type="text/javascript" src="../src/events.js"></script>
+    <script type="text/javascript">
+        var event = Events();
+
+        var handler = function(a, b) {
+            console.log('Event Handler');
+        };
+
+        event
+        .on('test', handler)
+        .on('test', function(success, fail) {
+            console.log('Some Event');
+
+            setTimeout(function() {
+                success();
+            }, 1000);
+
+            setTimeout(function() {
+                fail();
+            }, 2000);
+        }, function() {
+            console.log('Success');
+        }, function() {
+            console.log('Fail');
+        })
+        .off('test', handler)
+        .dispatch('test');
+    </script>
+</head>
+<body>
+
+</body>
+</html>
