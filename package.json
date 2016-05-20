@@ -1,0 +1,29 @@
+{
+  "name": "cc-events",
+  "version": "0.0.0",
+  "description": "Event Handler and Dispatcher in Javascript",
+  "main": "build/release/cc-events.js",
+  "directories": {
+    "example": "examples"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CodeCrunchIO/cc-events.git"
+  },
+  "keywords": [
+    "Javascript",
+    "Events",
+    "Dispatcher",
+    "Event",
+    "Handler"
+  ],
+  "author": "Charles Zamora",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/CodeCrunchIO/cc-events/issues"
+  },
+  "homepage": "https://github.com/CodeCrunchIO/cc-events#readme"
+}
