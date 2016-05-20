@@ -155,6 +155,13 @@
         return fn;
     }
 
+    // register AMD module
+    if(typeof define === 'function' && define.amd) {
+        define('Events', [], function() {
+            return Events;
+        });
+    }
+    
     // expose this object globally
     if(typeof window.Events === 'undefined') {
         window.Events = Events;
