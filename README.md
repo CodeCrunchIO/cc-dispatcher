@@ -1,10 +1,7 @@
 Dispatcher (Event Handler and Dispatcher in Javascript)
 ====
 
-- [Install](#install)
-- [Basic Usage](#basic)
-
----
+====
 
 <a name="install"></a>
 ## Install
@@ -19,7 +16,7 @@ Dispatcher (Event Handler and Dispatcher in Javascript)
 <script type="text/javascript" src="dispatcher.min.js"></script>
 ```
 
----
+====
 
 <a name="basic"></a>
 ## Basic Usage
