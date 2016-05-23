@@ -1,8 +1,8 @@
 {
-  "name": "cc-events",
-  "version": "0.0.0",
+  "name": "cc-dispatcher",
+  "version": "1.0.0",
   "description": "Event Handler and Dispatcher in Javascript",
-  "main": "build/release/cc-events.js",
+  "main": "build/release/dispatcher.js",
   "directories": {
     "example": "examples"
   },
@@ -11,19 +11,24 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/CodeCrunchIO/cc-events.git"
+    "url": "git+https://github.com/CodeCrunchIO/cc-dispatcher.git"
   },
   "keywords": [
-    "Javascript",
-    "Events",
-    "Dispatcher",
-    "Event",
-    "Handler"
+    "event",
+    "events",
+    "dispatcher",
+    "js"
   ],
   "author": "Charles Zamora",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/CodeCrunchIO/cc-events/issues"
+    "url": "https://github.com/CodeCrunchIO/cc-dispatcher/issues"
   },
-  "homepage": "https://github.com/CodeCrunchIO/cc-events#readme"
+  "homepage": "https://github.com/CodeCrunchIO/cc-dispatcher#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^1.5.3"
+  }
 }
