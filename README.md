@@ -14,8 +14,6 @@ Dispatcher (Event Handler and Dispatcher in Javascript)
 <script type="text/javascript" src="dispatcher.min.js"></script>
 ```
 
-====
-
 <a name="basic"></a>
 ## Basic Usage
 
