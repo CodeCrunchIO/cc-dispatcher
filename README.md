@@ -1,8 +1,6 @@
 Dispatcher (Event Handler and Dispatcher in Javascript)
 ====
 
-====
-
 <a name="install"></a>
 ## Install
 
