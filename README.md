@@ -121,4 +121,6 @@ dispatcher.off('load', load);
 dispatcher.dispatch('request', '/some-url');
 ```
 
-##That's It! :)
+<a name="license"></a>
+## License
+MIT
