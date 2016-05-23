@@ -1,15 +1,15 @@
 ;(function() {
     'use strict';
 
-    var Events = function() {
+    var Dispatcher = function() {
         // Shorthand initialization
-        if(!(this instanceof Events)) {
+        if(!(this instanceof Dispatcher)) {
             // return the instance
-            return new Events();
+            return new Dispatcher();
         }
 
         return this;
-    }, e = Events.prototype;
+    }, e = Dispatcher.prototype;
 
     // Object uuid
     e.guid          = 1;
@@ -157,13 +157,13 @@
 
     // register AMD module
     if(typeof define === 'function' && define.amd) {
-        define('Events', [], function() {
-            return Events;
+        define('Dispatcher', [], function() {
+            return Dispatcher;
         });
     }
     
     // expose this object globally
-    if(typeof window.Events === 'undefined') {
-        window.Events = Events;
+    if(typeof window.Dispatcher === 'undefined') {
+        window.Dispatcher = Dispatcher;
     }
 })();

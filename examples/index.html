@@ -1,35 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Events</title>
+    <title>Event Dispatcher</title>
 
-    <script type="text/javascript" src="../src/events.js"></script>
+    <script type="text/javascript" src="../src/dispatcher.js"></script>
     <script type="text/javascript">
-        var event = Events();
+        var dispatcher = Dispatcher();
 
-        var handler = function(a, b) {
-            console.log('Event Handler');
-        };
-
-        event
-        .on('test', handler)
-        .on('test', function(success, fail) {
-            console.log('Some Event');
-
+        var handler = function(success, fail) {
+            alert('Event Handler 1');
+        
             setTimeout(function() {
-                success();
+                success(1);
             }, 1000);
 
             setTimeout(function() {
-                fail();
+                fail(1);
             }, 2000);
-        }, function() {
-            console.log('Success');
-        }, function() {
-            console.log('Fail');
+        };
+
+        dispatcher
+        .on('event', handler)
+        .off('event', handler)
+        .on('event', handler, 
+        function(x) {
+            alert('Success Handler ' + x);
+        }, 
+        function(x) {
+            alert('Fail Handler ' + x);
         })
-        .off('test', handler)
-        .dispatch('test');
+        .dispatch('event');
     </script>
 </head>
 <body>
