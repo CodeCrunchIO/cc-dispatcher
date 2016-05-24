@@ -31,7 +31,14 @@ dispatcher.on('test-event', function([params...], success, fail) {
 })
 ```
 
-**Figure 3. Listening to Events with Success and Fail Handler**
+**Figure 3. Setting event handler priority**
+```js
+dispatcher.on('test-event', handler, true, [success, fail]);
+```
+
+>***Priority Handler will always be placed on top of other current handlers of the given event.***
+
+**Figure 4. Listening to Events with Success and Fail Handler**
 ```js
 dispatcher.on('test-event', function([params...], success, fail){
     setTimeout(function() {
@@ -52,7 +59,7 @@ function([params...]) {
 });
 ```
 
-**Figure 4. Removing Event Handler**
+**Figure 5. Removing Event Handler**
 
 ***Remove specific handler by passing handler function:***
 ```js
@@ -72,12 +79,12 @@ dispatcher.off('test');
 
 >**NOTE** Passing the original handler function is required when removing specific handler from the given event, the dispatcher will look for it's matching guid from the list of event handlers given the event name.
 
-**Figure 5. Dispatching Events**
+**Figure 6. Dispatching Events**
 ```js
 dispatcher.dispatch('test', [params...]);
 ```
 
-**Figure 6. Putting it all together**
+**Figure 7. Putting it all together**
 ```js
 var load = function() {
     console.log('Load Handler');
