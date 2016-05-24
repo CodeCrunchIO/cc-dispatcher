@@ -36,7 +36,7 @@ dispatcher.on('test-event', function([params...], success, fail) {
 dispatcher.on('test-event', handler, true, [success, fail]);
 ```
 
->***Priority Handler will always be placed on top of other current handlers of the given event.***
+>**NOTE** Priority Handler will always be placed on top of other current handlers of the given event.
 
 **Figure 4. Listening to Events with Success and Fail Handler**
 ```js
