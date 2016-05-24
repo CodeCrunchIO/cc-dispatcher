@@ -22,14 +22,16 @@
         // get the arguments
         var args = Array.prototype.slice.apply(arguments);
 
+        // priority event
+        var priority = false;
         // get the event name
-        var event = args.shift();
+        var event    = args.shift();
         // get the event handler
-        var fn    = args.shift(); 
+        var fn       = args.shift(); 
         // get the success handler
-        var s     = args.shift();
+        var s        = args.shift();
         // get the fail handler
-        var f     = args.shift();
+        var f        = args.shift();
 
         // check if event handler is set
         fn = typeof fn === 'function' ? fn : this.noop;
@@ -37,6 +39,16 @@
         // valid event name?
         if(!event || typeof event !== 'string') {
             return this;
+        }
+
+        // if priority is set
+        if(typeof s === 'boolean') {
+            // get the priority
+            priority = s;
+            // set the success callback
+            s        = f;
+            // set the fail callback
+            f        = args.shift();
         }
 
         // create a uid for the fn signature
@@ -48,15 +60,26 @@
         // if event does not exists
         if(!(event in this.observers)) {
             // set the event
-            this.observers[event] = {};
+            this.observers[event] = [];
         }
 
-        // set the event observer
-        this.observers[event][guid] = {
+        // build out the template
+        var handler = {
             fn : fn,
             s  : typeof s !== 'undefined' ? s : e.noop,
             f  : typeof f !== 'undefined' ? f : e.noop
         };
+
+        // if priority
+        if(priority) {
+            // push it on top
+            this.observers[event].unshift(handler);
+
+            return this;
+        }
+
+        // set the event observer
+        this.observers[event].push(handler);
 
         return this;
     };
@@ -76,13 +99,18 @@
         // does have guid property?
         if(typeof fn !== 'undefined'
         && typeof fn._guid !== 'undefined') {
-            // does guid exists?
-            if(!(fn._guid in this.observers[event])) {
+            // get the handlers
+            var handlers = getHandlers(event, fn._guid);
+
+            // handlers not empty?
+            if(handlers.length === 0) {
                 return this;
             }
 
-            // delete the given handler
-            delete this.observers[event][fn._guid];
+            // iterate on each handlers
+            for(var i in handlers) {
+                delete this.observers[event][i];
+            }
 
             return this;
         }
@@ -136,6 +164,36 @@
         delete this.observers[event];
 
         return this;
+    };
+
+    var getHandlers = function(event, guid) {
+        // set / list of handlers
+        var handlers = [];
+
+        // event exists in observers?
+        if(!(event in e.observers)) {
+            return handlers;
+        }
+
+        // valid array of handlers?
+        if(toString.call(e.observers[event]) !== '[object Array]') {
+            return handlers;
+        }
+
+        // iterate on each handlers
+        for(var i in e.observers[event]) {
+            // get the handler
+            var fn = e.observers[event][i];
+            // get the guid
+            var id = fn.fn._guid;
+
+            // valid guid?
+            if(typeof id !== 'undefined' && id === guid) {
+                handlers[i] = fn;
+            }
+        }
+
+        return handlers;
     };
 
     var createFnUid = function(fn) {

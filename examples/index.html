@@ -7,29 +7,19 @@
     <script type="text/javascript">
         var dispatcher = Dispatcher();
 
-        var handler = function(success, fail) {
-            alert('Event Handler 1');
-        
-            setTimeout(function() {
-                success(1);
-            }, 1000);
-
-            setTimeout(function() {
-                fail(1);
-            }, 2000);
-        };
+        var handler = function() { console.log('Handler!'); };
+        var handler2 = function() {};
 
         dispatcher
-        .on('event', handler)
-        .off('event', handler)
-        .on('event', handler, 
-        function(x) {
-            alert('Success Handler ' + x);
-        }, 
-        function(x) {
-            alert('Fail Handler ' + x);
-        })
-        .dispatch('event');
+        .on('same-event', handler)
+        .on('same-event', handler)
+        .on('same-event', handler)
+        .on('same-event', handler2)
+        .on('same-event', handler)
+        .on('same-event', handler)
+        .off('same-event', handler2)
+        .on('same-event', handler)
+        .dispatch('same-event');
     </script>
 </head>
 <body>
