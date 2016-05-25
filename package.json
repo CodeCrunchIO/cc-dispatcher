@@ -1,5 +1,5 @@
 {
-  "name": "cc-dispatcher",
+  "name": "dispatcher",
   "version": "1.0.0",
   "description": "Event Handler and Dispatcher in Javascript",
   "main": "build/release/dispatcher.js",
