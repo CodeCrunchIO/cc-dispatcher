@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/CodeCrunchIO/cc-dispatcher.git"
+    "url": "git+https://github.com/CodeCrunchIO/dispatcher.git"
   },
   "keywords": [
     "event",
@@ -22,9 +22,9 @@
   "author": "Charles Zamora",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/CodeCrunchIO/cc-dispatcher/issues"
+    "url": "https://github.com/CodeCrunchIO/dispatcher/issues"
   },
-  "homepage": "https://github.com/CodeCrunchIO/cc-dispatcher#readme",
+  "homepage": "https://github.com/CodeCrunchIO/dispatcher#readme",
   "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.0",
